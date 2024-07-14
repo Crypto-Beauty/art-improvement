@@ -1,0 +1,43 @@
+import random
+
+def calculate_hours_per_day(paintings, sculptures, months):
+    # Define the time ranges for creating paintings and sculptures
+    painting_time_range = (5, 7)  # hours
+    sculpture_time_range = (15, 20)  # hours
+    
+    # Calculate total hours required for paintings
+    total_painting_hours = sum(random.randint(*painting_time_range) for _ in range(paintings))
+    
+    # Calculate total hours required for sculptures
+    total_sculpture_hours = sum(random.randint(*sculpture_time_range) for _ in range(sculptures))
+    
+    # Calculate the total hours required
+    total_hours_required = total_painting_hours + total_sculpture_hours
+    
+    # Calculate the number of days in the given months
+    days_in_month = 30  # Approximate
+    total_days = months * days_in_month
+    
+    # Calculate required hours per day
+    required_hours_per_day = total_hours_required / total_days
+    
+    return required_hours_per_day
+
+def main():
+    # Define the parameters
+    total_works = 20
+    months = 6
+    
+    # Estimate number of paintings and sculptures (you can adjust as needed)
+    paintings = 14
+    sculptures = 6
+    
+    # Calculate the required hours per day for art classes
+    required_hours_per_day = calculate_hours_per_day(paintings, sculptures, months)
+    
+    # Display the result
+    print(f"To create {total_works} works (paintings and sculptures) in {months} months,")
+    print(f"you need to spend approximately {required_hours_per_day:.2f} hours per day on art classes.")
+
+if __name__ == "__main__":
+    main()
